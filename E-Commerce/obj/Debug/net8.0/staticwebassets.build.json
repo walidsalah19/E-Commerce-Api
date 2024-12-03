@@ -1,12 +1,20 @@
 {
   "Version": 1,
-  "Hash": "e91W+kxXh7V1Cxl8v/B71XZczzRDpD5um1iRGTo0q6Q=",
+  "Hash": "8Q+FjTxnY8XoKMzaDQWE0wrKfAuvGUJhDXGn//v3S5A=",
   "Source": "E-Commerce",
   "BasePath": "_content/E-Commerce",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "E-Commerce\\wwwroot",
+      "Source": "E-Commerce",
+      "ContentRoot": "G:\\c# projects\\Apis\\E-Commerce\\E-Commerce\\wwwroot\\",
+      "BasePath": "_content/E-Commerce",
+      "Pattern": "**"
+    }
+  ],
   "Assets": [],
   "Endpoints": []
 }

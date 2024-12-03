@@ -1,5 +1,5 @@
 
-using E_Commerce.Models;
+using E_Commerce.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce
@@ -37,7 +37,9 @@ namespace E_Commerce
                 });
             });
             var app = builder.Build();
-
+            app.UseMiddleware<ExceptionHandlingMiddleware>();
+            //Adding Logging meddilware
+            app.UseMiddleware<LoggingMiddleware>();
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {

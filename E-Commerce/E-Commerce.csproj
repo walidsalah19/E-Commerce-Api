@@ -26,7 +26,11 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Dto\" />
+    <Folder Include="Dtos\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Services\" />
+    <Folder Include="wwwroot\" />
     <Folder Include="Repostories\" />
   </ItemGroup>
 
