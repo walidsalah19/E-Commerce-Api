@@ -8,6 +8,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using E_Commerce.Interfaces.RepoInterfaces;
 using E_Commerce.Repostories;
+using E_Commerce.Interfaces.ServicesInterfaces;
+using E_Commerce.Services;
 
 namespace E_Commerce
 {
@@ -107,6 +109,9 @@ namespace E_Commerce
             //add ioc 
             builder.Services.AddScoped<ICardRepo, CartRepo>();
             builder.Services.AddScoped<IWishListRepo, WishListRepo>();
+            builder.Services.AddScoped<ICategoryRepo, CategoryRepo>();
+            builder.Services.AddScoped<ICategoryServices, CategoryServices>();
+
 
 
             var app = builder.Build();

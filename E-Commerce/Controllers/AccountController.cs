@@ -178,7 +178,7 @@ namespace E_Commerce.Controllers
             return BadRequest(ModelState);
         }
 
-        [HttpPost("RemoveAccount")]
+        [HttpGet("RemoveAccount")]
         [Authorize]
 
         public async Task<IActionResult> RemoveAccount()
@@ -201,7 +201,7 @@ namespace E_Commerce.Controllers
 
             return BadRequest(ModelState);
         }
-        [HttpPost("Logout")]
+        [HttpGet("Logout")]
         [Authorize]
         public async Task<IActionResult> Logout()
         {
