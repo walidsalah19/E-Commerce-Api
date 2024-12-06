@@ -1,8 +1,24 @@
 [
   {
     "ContainingType": "E_Commerce.Controllers.AccountController",
+    "Method": "ChangePassworf",
+    "RelativePath": "api/Account/ChangePassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "E_Commerce.Dtos.ChangePasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.AccountController",
     "Method": "Login",
-    "RelativePath": "api/Account/login",
+    "RelativePath": "api/Account/Login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -13,6 +29,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.AccountController",
+    "Method": "Logout",
+    "RelativePath": "api/Account/Logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -48,9 +74,35 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "E_Commerce.Controllers.AccountController",
+    "Method": "RemoveAccount",
+    "RelativePath": "api/Account/RemoveAccount",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "E_Commerce.Controllers.RoleController",
     "Method": "AddRole",
-    "RelativePath": "api/Role",
+    "RelativePath": "api/Role/AddRole",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "role",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.RoleController",
+    "Method": "RemoveRole",
+    "RelativePath": "api/Role/RemoveRole",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

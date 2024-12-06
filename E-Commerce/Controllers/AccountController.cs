@@ -1,5 +1,8 @@
 ﻿using E_Commerce.Dtos;
+using E_Commerce.Interfaces.RepoInterfaces;
 using E_Commerce.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -16,11 +19,15 @@ namespace E_Commerce.Controllers
     {
         private readonly UserManager<UserApplication> userManager;
         private readonly IConfiguration config;
+        private readonly ICardRepo cardRepo;
+        private readonly IWishListRepo wishListRepo;
 
-        public AccountController(UserManager<UserApplication> userManager, IConfiguration config)
+        public AccountController(UserManager<UserApplication> userManager, IConfiguration config, ICardRepo cardRepo, IWishListRepo wishListRepo)
         {
             this.userManager = userManager;
             this.config = config;
+            this.cardRepo = cardRepo;
+            this.wishListRepo = wishListRepo;
         }
 
         [HttpPost("RegistrationUser")]
@@ -46,8 +53,14 @@ namespace E_Commerce.Controllers
                     if (createValue.Succeeded)
                     {
                         var addRoleResult = await userManager.AddToRoleAsync(user, "User");
-                        if(addRoleResult.Succeeded)
+                        if (addRoleResult.Succeeded)
+                        {
+                            cardRepo.AddCart(new Cart { UserId=user.Id});
+                            cardRepo.saveChanges();
+                            wishListRepo.AddWishList(new Wishlist { UserId = user.Id });
+                            wishListRepo.saveChanges();
                             return Created("", "the Accout was created");
+                        }
                     }
                     foreach (var item in createValue.Errors)
                     {
@@ -92,7 +105,7 @@ namespace E_Commerce.Controllers
             }
             return BadRequest(ModelState);
         }
-        [HttpPost("login")]
+        [HttpPost("Login")]
         public async Task<IActionResult> Login(LoginDto dto)
         {
             if (ModelState.IsValid)
@@ -135,6 +148,65 @@ namespace E_Commerce.Controllers
                 ModelState.AddModelError("", "Please check the enterd data");
             }
             return BadRequest(ModelState);
+        }
+        [HttpPost("ChangePassword")]
+        [Authorize]
+        public async Task<IActionResult> ChangePassworf(ChangePasswordDto dto)
+        {
+
+            if(ModelState.IsValid)
+            {
+                var user = await userManager.GetUserAsync(User);
+
+                if (user == null)
+                {
+                    return Unauthorized("User not found or not logged in.");
+                }
+                
+                var status = await userManager.ChangePasswordAsync(user,dto.OldPassword,dto.NewPassword);
+                if(status.Succeeded)
+                {
+                    await userManager.UpdateSecurityStampAsync(user);
+                    return Ok("Password changed successfully.");
+                }
+                foreach(var item in status.Errors)
+                {
+                    ModelState.AddModelError("",item.Description);
+                }
+
+            }
+            return BadRequest(ModelState);
+        }
+
+        [HttpPost("RemoveAccount")]
+        [Authorize]
+
+        public async Task<IActionResult> RemoveAccount()
+        {
+            if(ModelState.IsValid)
+            {
+                var user =await userManager.GetUserAsync(User);
+                var deleteResult = await userManager.DeleteAsync(user);
+
+                if(deleteResult.Succeeded)
+                {
+                    
+                    return Ok("Account removed successfully.");
+                }
+                foreach(var item in deleteResult.Errors)
+                {
+                    ModelState.AddModelError("",item.Description);
+                }
+            }
+
+            return BadRequest(ModelState);
+        }
+        [HttpPost("Logout")]
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return Ok("Logged out successfully.");
         }
     }
 }

@@ -1,6 +1,4 @@
 ﻿
-using E_Commerce.Filters;
-
 namespace E_Commerce.Models
 {
     public class Coupon

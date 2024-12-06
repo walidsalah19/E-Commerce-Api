@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using E_Commerce.Interfaces.RepoInterfaces;
+using E_Commerce.Repostories;
 
 namespace E_Commerce
 {
@@ -102,6 +104,11 @@ namespace E_Commerce
                     .AllowAnyHeader();
                 });
             });
+            //add ioc 
+            builder.Services.AddScoped<ICardRepo, CartRepo>();
+            builder.Services.AddScoped<IWishListRepo, WishListRepo>();
+
+
             var app = builder.Build();
             app.UseMiddleware<ExceptionHandlingMiddleware>();
             //Adding Logging meddilware

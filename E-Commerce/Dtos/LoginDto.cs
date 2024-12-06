@@ -7,7 +7,5 @@ namespace E_Commerce.Dtos
         public string UserName { get; set; }       
         [DataType(DataType.Password)]
         public string Password { get; set; }
-
-        public bool IsVendor { get; set; }
     }
 }

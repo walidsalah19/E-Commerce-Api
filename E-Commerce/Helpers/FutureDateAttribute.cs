@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace E_Commerce.Filters
+namespace E_Commerce.Helpers
 {
     public class FutureDateAttribute : ValidationAttribute
     {
