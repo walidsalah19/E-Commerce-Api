@@ -17,6 +17,7 @@ namespace E_Commerce.Data.Configrations
               .HasForeignKey(y => y.VendorId)
               .OnDelete(DeleteBehavior.Cascade)
               .IsRequired();
+            
         }
     }
 }

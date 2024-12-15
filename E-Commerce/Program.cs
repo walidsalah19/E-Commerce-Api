@@ -32,7 +32,7 @@ namespace E_Commerce
                 {
                     Version = "v1",
                     Title = "ASP.NET�8�Web�API",
-                    Description = " ITI Projrcy"
+                    Description = "E-commarce project "
                 });
                 //�To�Enable�authorization�using�Swagger�(JWT)����
                 swagger.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
@@ -111,7 +111,8 @@ namespace E_Commerce
             builder.Services.AddScoped<IWishListRepo, WishListRepo>();
             builder.Services.AddScoped<ICategoryRepo, CategoryRepo>();
             builder.Services.AddScoped<ICategoryServices, CategoryServices>();
-
+            builder.Services.AddScoped<ICouponRepo, CouponRepo>();
+            builder.Services.AddScoped<ICouponServices, CouponServices>();
 
 
             var app = builder.Build();
@@ -129,7 +130,7 @@ namespace E_Commerce
 
 
            // app.UseAuthentication();
-            //app.UseAuthorization();
+          //app.UseAuthorization();
 
 
             app.MapControllers();

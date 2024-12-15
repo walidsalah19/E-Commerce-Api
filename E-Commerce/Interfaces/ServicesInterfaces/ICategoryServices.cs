@@ -8,7 +8,7 @@ namespace E_Commerce.Interfaces.ServicesInterfaces
         public void AddCategory(CategoryDto category);
         public Task<List<Category>> GetCategories();
 
-        public void UpdateCategory(CategoryDto category);
+        public int UpdateCategory(CategoryDto category, int id);
 
         public void DeleteCategory(int id);
 

@@ -50,13 +50,13 @@ namespace E_Commerce.Services
           return await categoryRepo.Search(query);
         }
 
-        public void UpdateCategory(CategoryDto category)
+        public int UpdateCategory(CategoryDto category, int id)
         {
-            categoryRepo.UpdateCategory(new Category
+           return  categoryRepo.UpdateCategory(new Category
             {
                 Description = category.Description,
                 Name = category.Name
-            });
+            }, id);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace E_Commerce.Interfaces.RepoInterfaces
         public void AddCategory(Category category);
         public Task<List<Category>> GetCategories();
 
-        public void UpdateCategory(Category category);
+        public int UpdateCategory(Category category, int id);
 
         public void DeleteCategory(int id);
 

@@ -177,36 +177,34 @@ namespace E_Commerce.Controllers
             }
             return BadRequest(ModelState);
         }
-
-        [HttpGet("RemoveAccount")]
-        [Authorize]
-
-        public async Task<IActionResult> RemoveAccount()
-        {
-            if(ModelState.IsValid)
-            {
-                var user =await userManager.GetUserAsync(User);
-                var deleteResult = await userManager.DeleteAsync(user);
-
-                if(deleteResult.Succeeded)
-                {
-                    
-                    return Ok("Account removed successfully.");
-                }
-                foreach(var item in deleteResult.Errors)
-                {
-                    ModelState.AddModelError("",item.Description);
-                }
-            }
-
-            return BadRequest(ModelState);
-        }
         [HttpGet("Logout")]
         [Authorize]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
             return Ok("Logged out successfully.");
+        }
+        [HttpDelete("RemoveAccount")]
+        [Authorize]
+        public async Task<IActionResult> RemoveAccount()
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await userManager.GetUserAsync(User);
+                var deleteResult = await userManager.DeleteAsync(user);
+
+                if (deleteResult.Succeeded)
+                {
+
+                    return Ok("Account removed successfully.");
+                }
+                foreach (var item in deleteResult.Errors)
+                {
+                    ModelState.AddModelError("", item.Description);
+                }
+            }
+
+            return BadRequest(ModelState);
         }
     }
 }

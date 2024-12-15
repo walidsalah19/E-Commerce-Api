@@ -16,7 +16,27 @@ namespace E_Commerce.Controllers
         {
             this.roleManager = roleManager;
         }
-        [HttpPost("AddRole")]
+       
+        [HttpGet]
+        public async Task<IActionResult> GetRole([FromQuery]string qurey) 
+        {
+           if(ModelState.IsValid)
+            {
+                var role = roleManager.RoleExistsAsync(qurey);
+
+                if(role !=null)
+                {
+                    return Ok("the role was found ");
+                }
+                else
+                {
+                    return NoContent();
+                }
+            }
+
+            return BadRequest(ModelState);
+        }
+        [HttpPost]
         public async Task<IActionResult> AddRole(string role)
         {
             if (ModelState.IsValid)
@@ -33,12 +53,9 @@ namespace E_Commerce.Controllers
                     ModelState.AddModelError("", item.Description);
                 }
             }
-
-
-
             return BadRequest(ModelState);
         }
-        [HttpPost("RemoveRole")]
+        [HttpDelete]
         public async Task<IActionResult> RemoveRole(string role)
         {
             if (ModelState.IsValid)
@@ -46,7 +63,7 @@ namespace E_Commerce.Controllers
                 IdentityRole identityRole = new IdentityRole();
                 identityRole.Name = role;
                 var result = await roleManager.GetRoleNameAsync(identityRole);
-                if (result !=null)
+                if (result != null)
                 {
                     var removeResult = await roleManager.DeleteAsync(identityRole);
                     if (removeResult.Succeeded)
@@ -61,7 +78,7 @@ namespace E_Commerce.Controllers
                 else
                 {
                     ModelState.AddModelError("", "This role isnt exist");
-                }   
+                }
             }
 
 

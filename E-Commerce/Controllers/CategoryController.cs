@@ -16,48 +16,6 @@ namespace E_Commerce.Controllers
         {
             this.categoryServices = categoryServices;
         }
-
-        [HttpPost("AddCategry")]
-        [Authorize(Roles = "Admin")]
-        public IActionResult AddCategory(CategoryDto category)
-        {
-            if (ModelState.IsValid)
-            {
-                categoryServices.AddCategory(category);
-                categoryServices.saveChanges();
-                return Ok("Add successffully");
-
-            }
-
-            return BadRequest(ModelState);
-        }
-        [HttpPost("UpdateCategry")]
-        [Authorize(Roles = "Admin")]
-        public IActionResult UpdateCategory(CategoryDto category)
-        {
-            if (ModelState.IsValid)
-            {
-                categoryServices.UpdateCategory(category);
-                categoryServices.saveChanges();
-                return Ok("Update successffully");
-
-            }
-
-            return BadRequest(ModelState);
-        }
-        [HttpPost("DeleteCategry")]
-        [Authorize(Roles = "Admin")]
-        public IActionResult DeleteCategory(int id)
-        {
-            if (ModelState.IsValid)
-            {
-                categoryServices.DeleteCategory(id);
-                categoryServices.saveChanges();
-                return Ok("Delete successffully");
-            }
-
-            return BadRequest(ModelState);
-        }
         [HttpGet("GetById")]
         [Authorize]
         public async Task<IActionResult> GetById(int id)
@@ -97,6 +55,53 @@ namespace E_Commerce.Controllers
 
             return BadRequest(ModelState);
         }
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public IActionResult AddCategory(CategoryDto category)
+        {
+            if (ModelState.IsValid)
+            {
+                categoryServices.AddCategory(category);
+                categoryServices.saveChanges();
+                return Ok("Add successffully");
 
+            }
+
+            return BadRequest(ModelState);
+        }
+        [HttpPut]
+        [Authorize(Roles = "Admin")]
+        public IActionResult UpdateCategory([FromBody] CategoryDto category, [FromQuery] int id)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = categoryServices.UpdateCategory(category, id);
+                if (result == 1)
+                {
+                    categoryServices.saveChanges();
+                    return Ok("Update successffully");
+                }
+                else
+                {
+                    return NoContent();
+                }
+
+            }
+
+            return BadRequest(ModelState);
+        }
+        [HttpDelete]
+        [Authorize(Roles = "Admin")]
+        public IActionResult DeleteCategory(int id)
+        {
+            if (ModelState.IsValid)
+            {
+                categoryServices.DeleteCategory(id);
+                categoryServices.saveChanges();
+                return Ok("Delete successffully");
+            }
+
+            return BadRequest(ModelState);
+        }
     }
 }

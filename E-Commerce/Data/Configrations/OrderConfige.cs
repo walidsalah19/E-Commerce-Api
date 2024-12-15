@@ -25,13 +25,6 @@ namespace E_Commerce.Data.Configrations
                 .OnDelete(DeleteBehavior.Restrict)
                 .IsRequired();
 
-            builder.HasOne(x => x.Coupon)
-               .WithMany(x => x.Orders)
-               .HasForeignKey(x => x.CouponId)
-               .OnDelete(DeleteBehavior.Restrict)
-               .IsRequired(false);
-
-
             builder.HasMany(x => x.OrderItems)
                 .WithOne(x => x.Order)
                 .HasForeignKey(x => x.OrderId)

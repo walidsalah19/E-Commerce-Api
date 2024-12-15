@@ -77,7 +77,7 @@
     "ContainingType": "E_Commerce.Controllers.AccountController",
     "Method": "RemoveAccount",
     "RelativePath": "api/Account/RemoveAccount",
-    "HttpMethod": "GET",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
@@ -86,7 +86,7 @@
   {
     "ContainingType": "E_Commerce.Controllers.CategoryController",
     "Method": "AddCategory",
-    "RelativePath": "api/Category/AddCategry",
+    "RelativePath": "api/Category",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -101,9 +101,30 @@
   },
   {
     "ContainingType": "E_Commerce.Controllers.CategoryController",
+    "Method": "UpdateCategory",
+    "RelativePath": "api/Category",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "category",
+        "Type": "E_Commerce.Dtos.CategoryDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.CategoryController",
     "Method": "DeleteCategory",
-    "RelativePath": "api/Category/DeleteCategry",
-    "HttpMethod": "POST",
+    "RelativePath": "api/Category",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -158,17 +179,127 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "E_Commerce.Controllers.CategoryController",
-    "Method": "UpdateCategory",
-    "RelativePath": "api/Category/UpdateCategry",
+    "ContainingType": "E_Commerce.Controllers.CouponController",
+    "Method": "AddCoupon",
+    "RelativePath": "api/Coupon",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "category",
-        "Type": "E_Commerce.Dtos.CategoryDto",
+        "Name": "dto",
+        "Type": "E_Commerce.Dtos.CouponDto",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.CouponController",
+    "Method": "DeleteCoupon",
+    "RelativePath": "api/Coupon",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "couponId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.CouponController",
+    "Method": "UpdateCoupon",
+    "RelativePath": "api/Coupon",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "coupon",
+        "Type": "E_Commerce.Dtos.CouponDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.CouponController",
+    "Method": "GetCoupons",
+    "RelativePath": "api/Coupon/AllCoupons",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.CouponController",
+    "Method": "GetCoupon",
+    "RelativePath": "api/Coupon/UserCoupon/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "couponId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.CouponController",
+    "Method": "GetVendorCoupon",
+    "RelativePath": "api/Coupon/VendorCoupon/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "couponId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.CouponController",
+    "Method": "GetVendorCoupons",
+    "RelativePath": "api/Coupon/VendorGetCoupons",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.RoleController",
+    "Method": "GetRole",
+    "RelativePath": "api/Role",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "qurey",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -176,7 +307,7 @@
   {
     "ContainingType": "E_Commerce.Controllers.RoleController",
     "Method": "AddRole",
-    "RelativePath": "api/Role/AddRole",
+    "RelativePath": "api/Role",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -192,8 +323,8 @@
   {
     "ContainingType": "E_Commerce.Controllers.RoleController",
     "Method": "RemoveRole",
-    "RelativePath": "api/Role/RemoveRole",
-    "HttpMethod": "POST",
+    "RelativePath": "api/Role",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [

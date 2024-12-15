@@ -50,10 +50,19 @@ namespace E_Commerce.Repostories
             return categories;
         }
 
-        public void UpdateCategory(Category category)
+        public int UpdateCategory(Category category, int id)
         {
-
-            context.Categories.Update(category);
+            var categoryData = context.Categories.SingleOrDefault(x => x.CategoryId==id);
+            if(categoryData !=null)
+            {
+                categoryData.Description = category.Description;
+                categoryData.Name = category.Name;
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }

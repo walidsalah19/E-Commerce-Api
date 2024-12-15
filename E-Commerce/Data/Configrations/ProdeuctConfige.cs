@@ -40,7 +40,10 @@ namespace E_Commerce.Data.Configrations
                .HasForeignKey(y => y.ProductId)
                 .OnDelete(DeleteBehavior.NoAction) ;
 
-
+            builder.HasOne(x => x.Coupon)
+               .WithMany(x => x.products)
+               .HasForeignKey(x => x.CouponId)
+               .IsRequired(false);
 
         }
     }

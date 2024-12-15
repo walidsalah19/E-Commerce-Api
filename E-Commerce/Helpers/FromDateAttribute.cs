@@ -2,7 +2,7 @@
 
 namespace E_Commerce.Helpers
 {
-    public class FutureDateAttribute : ValidationAttribute
+    public class FromDateAttribute : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {

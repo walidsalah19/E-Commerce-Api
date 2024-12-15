@@ -9,7 +9,8 @@
         public int Stock { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-
+        public int? CouponId { get; set; }
+        public Coupon Coupon { get; set; }
         public string VederId { get; set; }
         public Vendor vendor { get; set; }
         public ICollection<OrderItem>? OrderItems { get; set; }
