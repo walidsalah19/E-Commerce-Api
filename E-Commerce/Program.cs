@@ -10,6 +10,7 @@ using E_Commerce.Interfaces.RepoInterfaces;
 using E_Commerce.Repostories;
 using E_Commerce.Interfaces.ServicesInterfaces;
 using E_Commerce.Services;
+using Serilog;
 
 namespace E_Commerce
 {
@@ -113,8 +114,17 @@ namespace E_Commerce
             builder.Services.AddScoped<ICategoryServices, CategoryServices>();
             builder.Services.AddScoped<ICouponRepo, CouponRepo>();
             builder.Services.AddScoped<ICouponServices, CouponServices>();
+            builder.Services.AddScoped<IProductRepo, ProductRepo>();
+            builder.Services.AddScoped<IProductServices, ProductServices>();
 
+            // adding serilog 
+            Log.Logger = new LoggerConfiguration()
+                        .MinimumLevel.Information() // Set the minimum log level
+                        .WriteTo.Console()    // Log to console
+                        .CreateLogger();
 
+            // Replace default logging with Serilog
+           // builder.Host.UseSerilog();
             var app = builder.Build();
             app.UseMiddleware<ExceptionHandlingMiddleware>();
             //Adding Logging meddilware

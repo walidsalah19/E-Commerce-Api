@@ -11,6 +11,7 @@ namespace E_Commerce.Data.Configrations
             builder.ToTable("Coupon");
             builder.HasKey(x => x.CouponId);
             builder.Property(x => x.CouponId).ValueGeneratedOnAdd();
+            builder.HasIndex(x => x.Code).IsUnique();
 
             builder.HasOne(x => x.Vendor)
               .WithMany(y => y.Coupons)

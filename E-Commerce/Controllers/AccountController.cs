@@ -21,7 +21,7 @@ namespace E_Commerce.Controllers
         private readonly IConfiguration config;
         private readonly ICardRepo cardRepo;
         private readonly IWishListRepo wishListRepo;
-
+        
         public AccountController(UserManager<UserApplication> userManager, IConfiguration config, ICardRepo cardRepo, IWishListRepo wishListRepo)
         {
             this.userManager = userManager;

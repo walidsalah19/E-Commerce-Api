@@ -1,6 +1,25 @@
-﻿namespace E_Commerce.Interfaces.ServicesInterfaces
+﻿using E_Commerce.Dtos;
+using E_Commerce.Models;
+
+namespace E_Commerce.Interfaces.ServicesInterfaces
 {
-    public class IProductServices
+    public interface IProductServices
     {
+        public string AddProduct(ManageProductDto product,string vindorId);
+
+        public string DeleteProduct(int id);
+
+        public string UpdateProduct(ManageProductDto product, string vindorId);
+
+        public ProductDto GetProductById(int id);
+        public ProductDto GetProductByName(string name);
+
+        public List<ProductDto> GetAll();
+
+        public List<ProductDto> GetVendotProducts(string vendorId);
+
+        public IEnumerable<ProductDto> GetCategoryProducts(string category);
+
+        public void SaveChanges();
     }
 }

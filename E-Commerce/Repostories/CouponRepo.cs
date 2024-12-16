@@ -1,6 +1,7 @@
 ﻿using E_Commerce.Data;
 using E_Commerce.Interfaces.RepoInterfaces;
 using E_Commerce.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce.Repostories
 {
@@ -13,28 +14,43 @@ namespace E_Commerce.Repostories
             this.context = context;
         }
 
-        public void AddCoupon(Coupon coupon)
+        public async Task<string> AddCoupon(Coupon coupon)
         {
-            context.Coupons.Add(coupon);
+            try
+            {
+                await context.Coupons.AddAsync(coupon);
+                return "Success";
+            }catch(Exception e)
+            {
+                return e.Message;
+            }
         }
 
-        public int DeleteCoupon(int couponId, string vendorId)
+        public string DeleteCoupon(int couponId, string vendorId)
         {
             var coupone = GetCoupon(couponId);
             if (!coupone.VendorId.Equals(vendorId) || coupone != null)
             {
-                return 0;
+                return "Not Found";
             }
             else 
             {
                 context.Coupons.Remove(coupone);
-                return 1;
+                return "Success";
             }
         }
 
         public Coupon GetCoupon(int couponId)
         {
            return context.Coupons.FirstOrDefault(x => x.CouponId == couponId);
+        }
+
+        public async Task<Coupon> GetCouponeProduct(int id)
+        {
+            
+            var coupon =await context.Coupons.Include(x => x.products).FirstOrDefaultAsync(x=>x.CouponId==id);
+            return coupon;
+            
         }
 
         public List<Coupon> GetCoupons()
@@ -66,17 +82,23 @@ namespace E_Commerce.Repostories
             context.SaveChanges();
         }
 
-        public int UpdateCoupon(Coupon coupon)
+        public string UpdateCoupon(Coupon coupon)
         {
-            var coupone = context.Coupons.FirstOrDefault(x=>x.Code.Equals(coupon.Code));
-            if (!coupone.VendorId.Equals(coupon.VendorId) || coupone != null)
+            try
             {
-                return 0;
-            }
-            else
+                var coupone = context.Coupons.FirstOrDefault(x => x.Code.Equals(coupon.Code) && x.VendorId.Equals(coupon.VendorId));
+                if ( coupone == null)
+                {
+                    return "UnAuthorized";
+                }
+                else
+                {
+                    context.Coupons.Update(coupon);
+                    return "Success";
+                }
+            }catch(Exception e)
             {
-                context.Coupons.Update(coupon);
-                return 1;
+                return e.Message;
             }
         }
     }

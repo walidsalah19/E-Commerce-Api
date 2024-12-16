@@ -183,3 +183,15 @@ G:\c# projects\Apis\E-Commerce\E-Commerce\bin\Debug\net8.0\runtimes\win\lib\net6
 G:\c# projects\Apis\E-Commerce\E-Commerce\bin\Debug\net8.0\E-Commerce.staticwebassets.runtime.json
 G:\c# projects\Apis\E-Commerce\E-Commerce\obj\Debug\net8.0\E-Commerce.sourcelink.json
 G:\c# projects\Apis\E-Commerce\E-Commerce\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+G:\c# projects\Apis\E-Commerce\E-Commerce\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+G:\c# projects\Apis\E-Commerce\E-Commerce\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+G:\c# projects\Apis\E-Commerce\E-Commerce\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+G:\c# projects\Apis\E-Commerce\E-Commerce\bin\Debug\net8.0\Serilog.dll
+G:\c# projects\Apis\E-Commerce\E-Commerce\bin\Debug\net8.0\Serilog.AspNetCore.dll
+G:\c# projects\Apis\E-Commerce\E-Commerce\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+G:\c# projects\Apis\E-Commerce\E-Commerce\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+G:\c# projects\Apis\E-Commerce\E-Commerce\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+G:\c# projects\Apis\E-Commerce\E-Commerce\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+G:\c# projects\Apis\E-Commerce\E-Commerce\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+G:\c# projects\Apis\E-Commerce\E-Commerce\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+G:\c# projects\Apis\E-Commerce\E-Commerce\bin\Debug\net8.0\Serilog.Sinks.File.dll

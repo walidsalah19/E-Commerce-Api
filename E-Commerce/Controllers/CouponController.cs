@@ -59,65 +59,91 @@ namespace E_Commerce.Controllers
         }
         [Authorize]
         [HttpGet("UserCoupon/{id:int}")]
-        public IActionResult GetCoupon([FromQuery] int couponId)
+        public IActionResult GetCoupon([FromRoute] int id)
         {
             if (ModelState.IsValid)
             {
-                couponServices.GetCoupon(couponId);
-                couponServices.saveChanges();
-                return Ok("Add Succesffully");
+               var coupon= couponServices.GetCoupon(id);
+                return Ok(coupon);
             }
             return BadRequest(ModelState);
         }
         [Authorize(Roles = "Vendor")]
         [HttpGet("VendorCoupon/{id:int}")]
-        public async Task<IActionResult> GetVendorCoupon(int couponId)
+        public async Task<IActionResult> GetVendorCoupon([FromRoute]int id)
         {
             if (ModelState.IsValid)
             {
-                var id = await getVendorId();
-                couponServices.GetVendorCoupon(couponId, id);
-                couponServices.saveChanges();
-                return Ok("Add Succesffully");
+                var vendorId = await getVendorId();
+                var coupon= couponServices.GetVendorCoupon(id, vendorId);
+                return Ok(coupon);
+            }
+            return BadRequest(ModelState);
+        }
+        [Authorize()]
+        [HttpGet("CouponProducts/{id:int}")]
+        public async Task<IActionResult> CouponProducts([FromRoute] int id)
+        {
+            if (ModelState.IsValid)
+            {
+                var data = await couponServices.GetCouponeProduct(id);
+                if(data ==null)
+                {
+                    return NotFound("No Data Found");
+                }
+               
+                return Ok(data);
             }
             return BadRequest(ModelState);
         }
         [Authorize(Roles = "Vendor")]
         [HttpPost()]
-        public async Task<IActionResult> AddCoupon(CouponDto dto)
+        public async Task<IActionResult> AddCoupon([FromBody]CouponDto dto)
         {
             if (ModelState.IsValid)
             {
                 var id = await getVendorId();
-                couponServices.AddCoupon(dto, id);
-                couponServices.saveChanges();
-                return Ok("Add Succesffully");
+                var result=await couponServices.AddCoupon(dto, id);
+                if (result.Equals("Success"))
+                {
+                    couponServices.saveChanges();
+                    return Ok("Add Succesffully");
+                }
+                return BadRequest(result);   
             }
             return BadRequest(ModelState);
         }
         [Authorize(Roles = "Vendor")]
         [HttpDelete()]
-        public async Task<IActionResult> DeleteCoupon(int couponId)
+        public async Task<IActionResult> DeleteCoupon(int id)
         {
             if (ModelState.IsValid)
             {
-                var id = await getVendorId();
-                couponServices.DeleteCoupon(couponId,id);
+                var vendorId = await getVendorId();
+                var result= couponServices.DeleteCoupon(id, vendorId);
+                if (!result.Equals("Success"))
+                {
+                    return NotFound("You Cant't Delete this Coupon");
+                }
                 couponServices.saveChanges();
-                return Ok("Add Succesffully");
+                return Ok("Delete Succesffully");
             }
             return BadRequest(ModelState);
         }
         [Authorize(Roles = "Vendor")]
         [HttpPut()]
-        public async Task<IActionResult> UpdateCoupon(CouponDto coupon)
+        public async Task<IActionResult> UpdateCoupon([FromBody]CouponDto coupon)
         {
             if (ModelState.IsValid)
             {
                 var id = await getVendorId();
-                couponServices.UpdateCoupon(coupon, id);
+                var result= couponServices.UpdateCoupon(coupon, id);
+                if(!result.Equals("Success"))
+                {
+                    return NotFound("You Cant Update this Coupon");
+                }
                 couponServices.saveChanges();
-                return Ok("Add Succesffully");
+                return Ok("Update Succesffully");
             }
             return BadRequest(ModelState);
         }
@@ -130,3 +156,4 @@ namespace E_Commerce.Controllers
        
     }
 }
+ 

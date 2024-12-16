@@ -17,7 +17,7 @@ namespace E_Commerce.Controllers
             this.categoryServices = categoryServices;
         }
         [HttpGet("GetById")]
-        [Authorize]
+        [AllowAnonymous]
         public async Task<IActionResult> GetById(int id)
         {
             if (ModelState.IsValid)
@@ -30,7 +30,7 @@ namespace E_Commerce.Controllers
             return BadRequest(ModelState);
         }
         [HttpGet("GetAll")]
-        [Authorize]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAllCategories()
         {
             if (ModelState.IsValid)
@@ -43,7 +43,7 @@ namespace E_Commerce.Controllers
             return BadRequest(ModelState);
         }
         [HttpGet("Search")]
-        [Authorize]
+        [AllowAnonymous]
         public async Task<IActionResult> Search(string query)
         {
             if (ModelState.IsValid)

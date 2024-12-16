@@ -4,7 +4,6 @@ namespace E_Commerce.Dtos
 {
     public class CouponDto
     {
-        public int CouponId { get; set; }
         public string Code { get; set; }
         public decimal DiscountPercentage { get; set; }
         [FromDate]
