@@ -13,7 +13,7 @@ namespace E_Commerce.Data.Configrations
             builder.Property(x => x.CategoryId).ValueGeneratedOnAdd();
 
             builder.Property(x => x.Name).HasColumnType("varchar").HasMaxLength(256);
-
+            builder.HasIndex(x => x.Name).IsUnique();
 
         }
     }

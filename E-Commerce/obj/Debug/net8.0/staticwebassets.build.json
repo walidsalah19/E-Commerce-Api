@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8Q+FjTxnY8XoKMzaDQWE0wrKfAuvGUJhDXGn//v3S5A=",
+  "Hash": "N/VUuI3rTF5zh2/2j7d0awtmo9PX5BBhrVmMxa1WOhw=",
   "Source": "E-Commerce",
   "BasePath": "_content/E-Commerce",
   "Mode": "Default",
@@ -15,6 +15,111 @@
       "Pattern": "**"
     }
   ],
-  "Assets": [],
-  "Endpoints": []
+  "Assets": [
+    {
+      "Identity": "G:\\c# projects\\Apis\\E-Commerce\\E-Commerce\\wwwroot\\images\\ef27e823-68a1-4ade-abd0-518ae7e06031_image.png",
+      "SourceId": "E-Commerce",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\c# projects\\Apis\\E-Commerce\\E-Commerce\\wwwroot\\",
+      "BasePath": "_content/E-Commerce",
+      "RelativePath": "images/ef27e823-68a1-4ade-abd0-518ae7e06031_image#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "diz78u98rf",
+      "Integrity": "hX8yxU0dLo9ReYgMdYUlpe0XaV9a124L45IgdomsN30=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ef27e823-68a1-4ade-abd0-518ae7e06031_image.png"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "images/ef27e823-68a1-4ade-abd0-518ae7e06031_image.diz78u98rf.png",
+      "AssetFile": "G:\\c# projects\\Apis\\E-Commerce\\E-Commerce\\wwwroot\\images\\ef27e823-68a1-4ade-abd0-518ae7e06031_image.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "16173"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hX8yxU0dLo9ReYgMdYUlpe0XaV9a124L45IgdomsN30=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 17 Dec 2024 14:52:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "diz78u98rf"
+        },
+        {
+          "Name": "label",
+          "Value": "images/ef27e823-68a1-4ade-abd0-518ae7e06031_image.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hX8yxU0dLo9ReYgMdYUlpe0XaV9a124L45IgdomsN30="
+        }
+      ]
+    },
+    {
+      "Route": "images/ef27e823-68a1-4ade-abd0-518ae7e06031_image.png",
+      "AssetFile": "G:\\c# projects\\Apis\\E-Commerce\\E-Commerce\\wwwroot\\images\\ef27e823-68a1-4ade-abd0-518ae7e06031_image.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "16173"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hX8yxU0dLo9ReYgMdYUlpe0XaV9a124L45IgdomsN30=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 17 Dec 2024 14:52:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hX8yxU0dLo9ReYgMdYUlpe0XaV9a124L45IgdomsN30="
+        }
+      ]
+    }
+  ]
 }

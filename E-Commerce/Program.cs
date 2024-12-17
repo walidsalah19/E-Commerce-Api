@@ -126,6 +126,8 @@ namespace E_Commerce
             // Replace default logging with Serilog
            // builder.Host.UseSerilog();
             var app = builder.Build();
+            app.UseStaticFiles();
+
             app.UseMiddleware<ExceptionHandlingMiddleware>();
             //Adding Logging meddilware
             app.UseMiddleware<LoggingMiddleware>();

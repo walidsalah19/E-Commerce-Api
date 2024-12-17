@@ -1,4 +1,5 @@
 ﻿using E_Commerce.Helpers;
+using E_Commerce.Validations;
 
 namespace E_Commerce.Dtos
 {

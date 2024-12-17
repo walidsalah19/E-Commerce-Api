@@ -14,7 +14,7 @@ namespace E_Commerce.Services
             this.productRepo = productRepo;
         }
 
-        public string AddProduct(ManageProductDto productDto, string vindorId)
+        public string AddProduct(ManageProductDto productDto, string vindorId,string ImageUrl)
         {
             var product = new Product
             {
@@ -24,7 +24,8 @@ namespace E_Commerce.Services
                 Description = productDto.Description,
                 Stock = productDto.Stock,
                 Name = productDto.Name,
-                VederId = vindorId
+                VederId = vindorId,
+                ImageUrl= $"images/{ImageUrl}"
             };
             return productRepo.AddProduct(product);
 
@@ -44,13 +45,18 @@ namespace E_Commerce.Services
                     Description=x.Description,
                     Stock=x.Stock,
                     Name=x.Name,
-                    ProductId=x.ProductId
+                    ProductId=x.ProductId,
+                    ImageUrl = $"images/{x.ImageUrl}"
+
                 }).ToList();
         }
 
         public IEnumerable<ProductDto> GetCategoryProducts(string category)
         {
-            return productRepo.GetCategoryProducts(category).Select(x => new ProductDto { Name = x.Name, Price = x.Price, Description = x.Description, Stock = x.Stock, ProductId = x.ProductId });
+            return productRepo.GetCategoryProducts(category).Select(x => new ProductDto { 
+                Name = x.Name, Price = x.Price, Description = x.Description, Stock = x.Stock
+                , ProductId = x.ProductId,ImageUrl = $"images/{x.ImageUrl}"
+            });
         }
 
         public ProductDto GetProductById(int id)
@@ -62,7 +68,9 @@ namespace E_Commerce.Services
                 ProductId = product.ProductId,
                 Name = product.Name,
                 Description = product.Description,
-                Stock = product.Stock
+                Stock = product.Stock,
+                ImageUrl = $"images/{product.ImageUrl}"
+
             };
         }
 
@@ -75,7 +83,8 @@ namespace E_Commerce.Services
                 ProductId = product.ProductId,
                 Name = product.Name,
                 Description = product.Description,
-                Stock = product.Stock
+                Stock = product.Stock,
+                ImageUrl= $"images/{product.ImageUrl}"
             };
         }
 
@@ -87,7 +96,8 @@ namespace E_Commerce.Services
                 Description = x.Description,
                 Stock = x.Stock,
                 Name = x.Name,
-                ProductId = x.ProductId
+                ProductId = x.ProductId,
+                ImageUrl= $"images/{x.ImageUrl}"
             }).ToList();
         }
 
@@ -96,7 +106,7 @@ namespace E_Commerce.Services
             productRepo.SaveChanges();
         }
 
-        public string UpdateProduct(ManageProductDto productDto, string vindorId)
+        public string UpdateProduct(ManageProductDto productDto, string vindorId, string ImageUrl)
         {
             var product = new Product
             {
@@ -107,7 +117,8 @@ namespace E_Commerce.Services
                 Stock = productDto.Stock,
                 Name = productDto.Name,
                 VederId = vindorId,
-                ProductId=productDto.ProductId
+                ProductId=productDto.ProductId,
+                ImageUrl=ImageUrl
 
             };
             return productRepo.UpdateProduct(product);

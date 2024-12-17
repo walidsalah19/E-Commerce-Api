@@ -1,4 +1,5 @@
 ﻿using E_Commerce.Dtos;
+using E_Commerce.Helpers;
 using E_Commerce.Interfaces.ServicesInterfaces;
 using E_Commerce.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -16,12 +17,14 @@ namespace E_Commerce.Controllers
         private readonly IProductServices productServices;
         private readonly UserManager<UserApplication> userManager;
         private readonly ILogger<ProductController> logger;
+        private readonly IWebHostEnvironment webHostEnvironment;
 
-        public ProductController(IProductServices productServices, UserManager<UserApplication> userManager, ILogger<ProductController> logger)
+        public ProductController(IProductServices productServices, UserManager<UserApplication> userManager, ILogger<ProductController> logger, IWebHostEnvironment webHostEnvironment)
         {
             this.productServices = productServices;
             this.userManager = userManager;
             this.logger = logger;
+            this.webHostEnvironment = webHostEnvironment;
         }
 
         [AllowAnonymous]
@@ -77,12 +80,13 @@ namespace E_Commerce.Controllers
 
         [Authorize(Roles ="Vendor")]
         [HttpPost]
-        public async Task<IActionResult> AddProduct(ManageProductDto dto)
+        public async Task<IActionResult> AddProduct([FromForm]ManageProductDto dto)
         {
             if(ModelState.IsValid)
             {
+                var imageUrl = await UploadImage.ProcessUploadedFile(dto.image, webHostEnvironment);
                 var vendorId = await getVendorId();
-               var result= productServices.AddProduct(dto,vendorId);
+               var result= productServices.AddProduct(dto,vendorId,imageUrl);
                 if (result.Equals("Success"))
                 {
                     productServices.SaveChanges();
@@ -94,12 +98,13 @@ namespace E_Commerce.Controllers
         }
         [Authorize(Roles = "Vendor")]
         [HttpPut]
-        public async Task<IActionResult> UpdateProduct(ManageProductDto dto)
+        public async Task<IActionResult> UpdateProduct([FromForm]ManageProductDto dto)
         {
             if (ModelState.IsValid)
             {
+                var imageUrl = await UploadImage.ProcessUploadedFile(dto.image, webHostEnvironment);
                 var vendorId = await getVendorId();
-                var result = productServices.UpdateProduct(dto, vendorId);
+                var result = productServices.UpdateProduct(dto, vendorId,imageUrl);
                 if (result.Equals("Success"))
                 {
                     productServices.SaveChanges();

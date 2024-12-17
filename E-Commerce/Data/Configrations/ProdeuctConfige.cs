@@ -12,6 +12,8 @@ namespace E_Commerce.Data.Configrations
             builder.HasKey(x => x.ProductId);
             builder.Property(x => x.ProductId).ValueGeneratedOnAdd();
 
+            builder.HasIndex(x => x.Name).IsUnique(false);
+
 
             builder.HasOne(x => x.Category)
                 .WithMany(y => y.Products)

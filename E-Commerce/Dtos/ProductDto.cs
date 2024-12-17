@@ -1,4 +1,6 @@
-﻿namespace E_Commerce.Dtos
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace E_Commerce.Dtos
 {
     public class ProductDto
     {
@@ -7,5 +9,7 @@
         public string Description { get; set; }
         public decimal Price { get; set; }
         public int Stock { get; set; }
+        public string ImageUrl { get; set; }
+
     }
 }

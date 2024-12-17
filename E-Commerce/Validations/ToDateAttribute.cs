@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace E_Commerce.Helpers
+namespace E_Commerce.Validations
 {
     public class ToDateAttribute : ValidationAttribute
     {

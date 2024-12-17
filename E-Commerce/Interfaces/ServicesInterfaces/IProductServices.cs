@@ -5,11 +5,11 @@ namespace E_Commerce.Interfaces.ServicesInterfaces
 {
     public interface IProductServices
     {
-        public string AddProduct(ManageProductDto product,string vindorId);
+        public string AddProduct(ManageProductDto product,string vindorId, string ImageUrl);
 
         public string DeleteProduct(int id);
 
-        public string UpdateProduct(ManageProductDto product, string vindorId);
+        public string UpdateProduct(ManageProductDto product, string vindorId,string ImageUrl);
 
         public ProductDto GetProductById(int id);
         public ProductDto GetProductByName(string name);
