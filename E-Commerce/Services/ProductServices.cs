@@ -14,7 +14,7 @@ namespace E_Commerce.Services
             this.productRepo = productRepo;
         }
 
-        public string AddProduct(ManageProductDto productDto, string vindorId,string ImageUrl)
+        public string AddProduct(ProductDtoManage productDto, string vindorId,string ImageUrl)
         {
             var product = new Product
             {
@@ -106,7 +106,7 @@ namespace E_Commerce.Services
             productRepo.SaveChanges();
         }
 
-        public string UpdateProduct(ManageProductDto productDto, string vindorId, string ImageUrl)
+        public string UpdateProduct(ProductDtoManage productDto, string vindorId, string ImageUrl)
         {
             var product = new Product
             {

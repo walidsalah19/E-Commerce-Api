@@ -4,7 +4,7 @@ namespace E_Commerce.Interfaces.RepoInterfaces
 {
     public interface ICardRepo
     {
-        public void AddCart(Cart cart);
+        public void AddCart(Card cart);
 
         public int GetCartId(string userId);
 

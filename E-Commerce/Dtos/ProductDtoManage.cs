@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace E_Commerce.Dtos
 {
-    public class ManageProductDto
+    public class ProductDtoManage
     {
         public int ProductId { get; set; }
         public string Name { get; set; }

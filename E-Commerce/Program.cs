@@ -116,6 +116,8 @@ namespace E_Commerce
             builder.Services.AddScoped<ICouponServices, CouponServices>();
             builder.Services.AddScoped<IProductRepo, ProductRepo>();
             builder.Services.AddScoped<IProductServices, ProductServices>();
+            builder.Services.AddScoped<ICardItemRepo, CardItemRepo>();
+            builder.Services.AddScoped<ICardItemServises, CartItemServices>();
 
             // adding serilog 
             Log.Logger = new LoggerConfiguration()

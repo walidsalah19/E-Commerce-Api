@@ -84,6 +84,80 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "E_Commerce.Controllers.CardItemsController",
+    "Method": "AddItem",
+    "RelativePath": "api/CardItems",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "E_Commerce.Dtos.CardItemDtoManage",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.CardItemsController",
+    "Method": "DeleteItem",
+    "RelativePath": "api/CardItems",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.CardItemsController",
+    "Method": "GetCardItems",
+    "RelativePath": "api/CardItems/All",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.CardItemsController",
+    "Method": "GetCardItemById",
+    "RelativePath": "api/CardItems/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.CardItemsController",
+    "Method": "GetCardItemByProductName",
+    "RelativePath": "api/CardItems/ProductName",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "E_Commerce.Controllers.CategoryController",
     "Method": "AddCategory",
     "RelativePath": "api/Category",

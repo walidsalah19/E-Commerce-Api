@@ -13,7 +13,7 @@ namespace E_Commerce.Repostories
             this.context = context;
         }
 
-        public void AddCart(Cart cart)
+        public void AddCart(Card cart)
         {
             context.Carts.Add(cart);
         }

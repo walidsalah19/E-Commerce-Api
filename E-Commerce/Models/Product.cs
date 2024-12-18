@@ -15,7 +15,7 @@
         public string VederId { get; set; }
         public Vendor vendor { get; set; }
         public ICollection<OrderItem>? OrderItems { get; set; }
-        public ICollection<CartItem>? CartItems { get; set; }
+        public ICollection<CardItem>? CartItems { get; set; }
         public ICollection<Review>? Reviews { get; set; }
     }
 }

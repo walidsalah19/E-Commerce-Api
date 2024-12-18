@@ -16,8 +16,8 @@ namespace E_Commerce.Data
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Wishlist> Wishlists { get; set; }
         public DbSet<WishlistItem> WishlistItems { get; set; }
-        public DbSet<Cart> Carts { get; set; }
-        public DbSet<CartItem> CartItems { get; set; }
+        public DbSet<Card> Carts { get; set; }
+        public DbSet<CardItem> CartItems { get; set; }
         public DbSet<Coupon> Coupons { get; set; }
         public DbSet<Shipping> Shippings { get; set; }
         public DbSet<Vendor> Vendors { get; set; }

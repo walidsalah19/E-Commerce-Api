@@ -80,7 +80,7 @@ namespace E_Commerce.Controllers
 
         [Authorize(Roles ="Vendor")]
         [HttpPost]
-        public async Task<IActionResult> AddProduct([FromForm]ManageProductDto dto)
+        public async Task<IActionResult> AddProduct([FromForm]ProductDtoManage dto)
         {
             if(ModelState.IsValid)
             {
@@ -98,7 +98,7 @@ namespace E_Commerce.Controllers
         }
         [Authorize(Roles = "Vendor")]
         [HttpPut]
-        public async Task<IActionResult> UpdateProduct([FromForm]ManageProductDto dto)
+        public async Task<IActionResult> UpdateProduct([FromForm]ProductDtoManage dto)
         {
             if (ModelState.IsValid)
             {

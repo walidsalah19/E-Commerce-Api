@@ -55,7 +55,7 @@ namespace E_Commerce.Controllers
                         var addRoleResult = await userManager.AddToRoleAsync(user, "User");
                         if (addRoleResult.Succeeded)
                         {
-                            cardRepo.AddCart(new Cart { UserId=user.Id});
+                            cardRepo.AddCart(new Card { UserId=user.Id});
                             cardRepo.saveChanges();
                             wishListRepo.AddWishList(new Wishlist { UserId = user.Id });
                             wishListRepo.saveChanges();

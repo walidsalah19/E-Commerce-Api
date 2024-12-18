@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace E_Commerce.Data.Configrations
 {
-    public class CartConfige : IEntityTypeConfiguration<Cart>
+    public class CartConfige : IEntityTypeConfiguration<Card>
     {
-        public void Configure(EntityTypeBuilder<Cart> builder)
+        public void Configure(EntityTypeBuilder<Card> builder)
         {
             builder.ToTable("Cart");
             builder.HasKey(x => x.CartId);
@@ -21,7 +21,7 @@ namespace E_Commerce.Data.Configrations
 
             builder.HasOne(c => c.User)
             .WithOne(u => u.Cart)
-            .HasForeignKey<Cart>(c => c.UserId)
+            .HasForeignKey<Card>(c => c.UserId)
             .OnDelete(DeleteBehavior.Cascade);
         }
     }

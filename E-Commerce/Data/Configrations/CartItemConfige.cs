@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce.Data.Configrations
 {
-    public class CartItemConfige : IEntityTypeConfiguration<CartItem>
+    public class CartItemConfige : IEntityTypeConfiguration<CardItem>
     {
-        public void Configure(EntityTypeBuilder<CartItem> builder)
+        public void Configure(EntityTypeBuilder<CardItem> builder)
         {
             builder.ToTable("CartItem");
             builder.HasKey(x => x.CartItemId);
