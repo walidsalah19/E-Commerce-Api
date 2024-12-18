@@ -78,6 +78,7 @@ namespace E_Commerce.Services
                 ImageUrl = $"images/{item.Product.ImageUrl}",
                 Name = item.Product.Name,
                 Price = item.Product.Price,
+                Stock=item.Product.Stock,
                 WishlistItemId = item.WishlistItemId
 
             }).ToList();

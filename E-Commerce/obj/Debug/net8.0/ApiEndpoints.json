@@ -555,6 +555,64 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "E_Commerce.Controllers.ReviewController",
+    "Method": "AddItem",
+    "RelativePath": "api/Review",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "E_Commerce.Dtos.ReviewDtoManage",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.ReviewController",
+    "Method": "DeleteItem",
+    "RelativePath": "api/Review",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.ReviewController",
+    "Method": "GetProductReview",
+    "RelativePath": "api/Review/ProductReviews",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.ReviewController",
+    "Method": "GetUserReviews",
+    "RelativePath": "api/Review/UserReviews",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "E_Commerce.Controllers.RoleController",
     "Method": "GetRole",
     "RelativePath": "api/Role",

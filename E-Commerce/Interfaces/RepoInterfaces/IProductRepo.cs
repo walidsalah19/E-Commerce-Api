@@ -19,6 +19,7 @@ namespace E_Commerce.Interfaces.RepoInterfaces
 
         public List<Product> GetVendotProducts(string vendorId);
 
+
         public IEnumerable<Product> GetCategoryProducts(string category);
 
         public void SaveChanges();

@@ -67,7 +67,6 @@ namespace E_Commerce.Repostories
         {
             return context.Products.FirstOrDefault(x => x.Name.Contains(name));
         }
-
         public List<Product> GetVendotProducts(string vendorId)
         {
             var product = context.Products.Where(x => x.VederId.Equals(vendorId)).ToList();
