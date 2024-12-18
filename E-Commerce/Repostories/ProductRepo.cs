@@ -1,5 +1,6 @@
 ﻿using E_Commerce.Data;
 using E_Commerce.Dtos;
+using E_Commerce.Helpers;
 using E_Commerce.Interfaces.RepoInterfaces;
 using E_Commerce.Models;
 using Microsoft.EntityFrameworkCore;
@@ -53,7 +54,7 @@ namespace E_Commerce.Repostories
 
         public IEnumerable<Product> GetCategoryProducts(string category)
         {
-            var product = context.Products.Include(x => x.Category).Where(x => x.Category.Name.Equals(category)).ToList();
+            var product = context.Products.Include(x => x.Category).AsSplitQuery().Where(x => x.Category.Name.Equals(category)).ToList();
             return product;
         }
 

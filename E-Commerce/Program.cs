@@ -118,6 +118,8 @@ namespace E_Commerce
             builder.Services.AddScoped<IProductServices, ProductServices>();
             builder.Services.AddScoped<ICardItemRepo, CardItemRepo>();
             builder.Services.AddScoped<ICardItemServises, CartItemServices>();
+            builder.Services.AddScoped<IWishListItemRepo, WishItemsRepo>();
+            builder.Services.AddScoped<IWishItemsServices, WishItemsServices>();
 
             // adding serilog 
             Log.Logger = new LoggerConfiguration()

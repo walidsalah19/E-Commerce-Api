@@ -43,6 +43,7 @@ namespace E_Commerce.Services
                     ImageUrl = $"images/{item.Product.ImageUrl}",
                     Name = item.Product.Name,
                     Price = item.Product.Price,
+                    CartItemId=item.CartItemId
                 };
                 return dto;
             }
@@ -63,6 +64,8 @@ namespace E_Commerce.Services
                     ImageUrl = $"images/{item.Product.ImageUrl}",
                     Name = item.Product.Name,
                     Price = item.Product.Price,
+                    CartItemId = item.CartItemId
+
                 };
                 return dto;
             }
@@ -80,6 +83,8 @@ namespace E_Commerce.Services
                 ImageUrl = $"images/{item.Product.ImageUrl}",
                 Name = item.Product.Name,
                 Price = item.Product.Price,
+                CartItemId = item.CartItemId
+
             }).ToList();
 
             return items;

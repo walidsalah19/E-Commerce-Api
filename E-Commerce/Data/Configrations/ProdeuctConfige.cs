@@ -40,7 +40,12 @@ namespace E_Commerce.Data.Configrations
             builder.HasMany(x => x.CartItems)
                .WithOne(y => y.Product)
                .HasForeignKey(y => y.ProductId)
-                .OnDelete(DeleteBehavior.NoAction) ;
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasMany(x => x.WishlistItems)
+              .WithOne(y => y.Product)
+              .HasForeignKey(y => y.ProductId)
+               .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(x => x.Coupon)
                .WithMany(x => x.products)

@@ -11,7 +11,7 @@ namespace E_Commerce.Data.Configrations
             builder.ToTable("WishlistItem");
             builder.HasKey(x => x.WishlistItemId);
             builder.Property(x => x.WishlistItemId).ValueGeneratedOnAdd();
-
+         
         }
     }
 }

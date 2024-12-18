@@ -11,6 +11,7 @@ namespace E_Commerce.Data.Configrations
             builder.ToTable("CartItem");
             builder.HasKey(x => x.CartItemId);
             builder.Property(x => x.CartItemId).ValueGeneratedOnAdd();
+           
         }
     }
 }

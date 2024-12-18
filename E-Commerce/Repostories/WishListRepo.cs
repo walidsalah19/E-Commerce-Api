@@ -20,7 +20,7 @@ namespace E_Commerce.Repostories
 
         public int GetWishListId(string userId)
         {
-            var wish = context.Wishlists.SingleOrDefault(x => x.UserId == userId);
+            var wish = context.Wishlists.SingleOrDefault(x => x.UserId.Equals(userId));
 
             return wish.WishlistId;
         }

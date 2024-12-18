@@ -20,7 +20,7 @@ namespace E_Commerce.Repostories
 
         public int GetCartId(string userId)
         {
-            var cart = context.Carts.FirstOrDefault(x=>x.UserId==userId);
+            var cart = context.Carts.FirstOrDefault(x=>x.UserId.Equals(userId));
 
             return cart.CartId;
         }
