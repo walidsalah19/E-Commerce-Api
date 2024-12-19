@@ -369,6 +369,73 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "E_Commerce.Controllers.OrderController",
+    "Method": "cancelOrder",
+    "RelativePath": "api/Order/CancelOrder",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "OrderId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.OrderController",
+    "Method": "createOrder",
+    "RelativePath": "api/Order/CreateOrder",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.OrderController",
+    "Method": "cancelOrder",
+    "RelativePath": "api/Order/UpdateStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "OrderId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.OrderController",
+    "Method": "GetOrdersForUser",
+    "RelativePath": "api/Order/UserOrders",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_Commerce.Controllers.OrderController",
+    "Method": "GetOrdersForVendor",
+    "RelativePath": "api/Order/VendorOrders",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "E_Commerce.Controllers.ProductController",
     "Method": "AddProduct",
     "RelativePath": "api/Product",

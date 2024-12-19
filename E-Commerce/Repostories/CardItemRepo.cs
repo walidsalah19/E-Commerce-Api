@@ -38,7 +38,7 @@ namespace E_Commerce.Repostories
             return item;
         }
 
-        public List<CardItem> GetCardItems(string userId)
+        public async Task<List<CardItem>> GetCardItems(string userId)
         {
             var item = context.CartItems.Include(x => x.Cart).Include(x=>x.Product).Where(x =>x.Cart.UserId.Equals(userId)).ToList();
             return item;
@@ -57,6 +57,19 @@ namespace E_Commerce.Repostories
                 return "Not Found";
             }
             catch(Exception e)
+            {
+                return e.Message;
+            }
+        }
+
+        public async Task<string> RemoveRangeItem(List<CardItem> items)
+        {
+            try
+            {
+                context.CartItems.RemoveRange(items);
+                return "Success";
+            }
+            catch (Exception e)
             {
                 return e.Message;
             }

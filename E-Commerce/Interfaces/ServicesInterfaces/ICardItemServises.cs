@@ -10,7 +10,7 @@ namespace E_Commerce.Interfaces.ServicesInterfaces
         public CartItemDto GetCardItemById(int id, string userId);
         public CartItemDto GetCardItemByProductName(string name, string userId);
 
-        public List<CartItemDto> GetCardItems(string userId);
+        public Task<List<CartItemDto>> GetCardItems(string userId);
         public void SaveChanges();
 
     }

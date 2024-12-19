@@ -7,7 +7,6 @@
         public User User { get; set; }
         public string VendorId { get; set; }
         public Vendor Vendor { get; set; }
-       
         public Shipping Shipping { get; set; }
         public DateTime OrderDate { get; set; }
         public decimal TotalAmount { get; set; }

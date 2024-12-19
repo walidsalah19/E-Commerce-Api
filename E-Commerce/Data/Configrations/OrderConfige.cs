@@ -25,6 +25,7 @@ namespace E_Commerce.Data.Configrations
                 .OnDelete(DeleteBehavior.Restrict)
                 .IsRequired();
 
+
             builder.HasMany(x => x.OrderItems)
                 .WithOne(x => x.Order)
                 .HasForeignKey(x => x.OrderId)

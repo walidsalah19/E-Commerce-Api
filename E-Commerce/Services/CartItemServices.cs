@@ -72,9 +72,10 @@ namespace E_Commerce.Services
             return null;
         }
 
-        public List<CartItemDto> GetCardItems(string userId)
+        public async Task<List<CartItemDto>> GetCardItems(string userId)
         {
-            var items = cardItemRepo.GetCardItems(userId).Select(item => new CartItemDto
+            var items = await cardItemRepo.GetCardItems(userId);
+            var ListItems=items.Select(item => new CartItemDto
             {
                 ProductId = item.Product.ProductId,
                 Quantity = item.Quantity,
@@ -87,7 +88,7 @@ namespace E_Commerce.Services
 
             }).ToList();
 
-            return items;
+            return ListItems;
         }
 
         public string RemoveItem(int id, string userId)

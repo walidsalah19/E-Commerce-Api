@@ -9,7 +9,9 @@ namespace E_Commerce.Interfaces.RepoInterfaces
         public CardItem GetCardItemById(int id, string userId);
         public CardItem GetCardItemByProductName(string name, string userId);
 
-        public List<CardItem> GetCardItems(string userId);
+        public Task<List<CardItem>> GetCardItems(string userId);
+
+        public Task<string> RemoveRangeItem(List<CardItem> items);
 
         public void SaveChanges();
 
