@@ -1,4 +1,5 @@
-﻿using E_Commerce.Dtos;
+﻿using AutoMapper;
+using E_Commerce.Dtos;
 using E_Commerce.Interfaces.ServicesInterfaces;
 using E_Commerce.Models;
 using Microsoft.AspNetCore.Authorization;
