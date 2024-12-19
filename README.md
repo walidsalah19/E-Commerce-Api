@@ -1,0 +1,1 @@
+This is a fully-featured e-commerce RESTful API built using .NET Core. The API provides essential functionalities for managing products, orders, carts, users, and vendors. It includes secure user authentication and authorization using ASP.NET Identity and supports transactional operations for consistent and reliable data management.
