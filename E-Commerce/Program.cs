@@ -19,7 +19,8 @@ namespace E_Commerce
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            // Add AutoMapper
+            builder.Services.AddAutoMapper(typeof(Program));
             // Add services to the container.
 
             builder.Services.AddControllers();
@@ -131,8 +132,9 @@ namespace E_Commerce
                         .WriteTo.Console()    // Log to console
                         .CreateLogger();
 
+            
             // Replace default logging with Serilog
-           // builder.Host.UseSerilog();
+            // builder.Host.UseSerilog();
             var app = builder.Build();
             app.UseStaticFiles();
 

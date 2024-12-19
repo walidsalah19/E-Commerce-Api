@@ -195,3 +195,5 @@ G:\c# projects\Apis\E-Commerce\E-Commerce\bin\Debug\net8.0\Serilog.Settings.Conf
 G:\c# projects\Apis\E-Commerce\E-Commerce\bin\Debug\net8.0\Serilog.Sinks.Console.dll
 G:\c# projects\Apis\E-Commerce\E-Commerce\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
 G:\c# projects\Apis\E-Commerce\E-Commerce\bin\Debug\net8.0\Serilog.Sinks.File.dll
+G:\c# projects\Apis\E-Commerce\E-Commerce\bin\Debug\net8.0\AutoMapper.dll
+G:\c# projects\Apis\E-Commerce\E-Commerce\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
